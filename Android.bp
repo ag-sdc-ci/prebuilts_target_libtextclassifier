@@ -1,0 +1,154 @@
+// Auto-generated prebuilt Blueprint for prebuilts_target_libtextclassifier
+// Staged from Extractive APEX package: ext-libtextclassifier (org.blisslabs.ag.ext.libtextclassifier)
+
+package {
+    default_applicable_licenses: ["external_libtextclassifier_license"],
+}
+
+license {
+    name: "external_libtextclassifier_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "SPDX-license-identifier-Apache-2.0",
+        "legacy_unencumbered",
+    ],
+    license_text: [
+        "NOTICE",
+    ],
+}
+
+cc_library_headers {
+    name: "libtextclassifier_hash_headers",
+    vendor_available: true,
+    host_supported: true,
+    export_include_dirs: ["include"],
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.btservices",
+        "com.android.neuralnetworks",
+        "test_com.android.neuralnetworks",
+        "com.android.ondevicepersonalization",
+    ],
+    min_sdk_version: "apex_inherit",
+    sdk_version: "current",
+}
+
+cc_library_headers {
+    name: "libtextclassifier_flatbuffer_headers",
+    stl: "libc++_static",
+    sdk_version: "current",
+    min_sdk_version: "30",
+    export_include_dirs: ["include"],
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.extservices",
+        "com.android.adservices",
+    ],
+}
+
+cc_prebuilt_library {
+    name: "libtextclassifier",
+    min_sdk_version: "30",
+    sdk_version: "current",
+    stl: "libc++_static",
+    export_include_dirs: ["include"],
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.extservices",
+    ],
+    shared: {
+        srcs: ["lib/libtextclassifier.so"],
+    },
+    static: {
+        srcs: ["lib/libtextclassifier.a"],
+    },
+}
+
+cc_prebuilt_library {
+    name: "libtextclassifier_hash",
+    vendor_available: true,
+    double_loadable: true,
+    sdk_version: "current",
+    stl: "libc++_static",
+    min_sdk_version: "apex_inherit",
+    export_include_dirs: ["include"],
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.btservices",
+        "com.android.neuralnetworks",
+        "test_com.android.neuralnetworks",
+        "com.android.extservices",
+        "com.android.adservices",
+        "com.android.ondevicepersonalization",
+    ],
+    shared: {
+        srcs: ["lib/libtextclassifier_hash.so"],
+    },
+    static: {
+        srcs: ["lib/libtextclassifier_hash_static.a"],
+    },
+}
+
+cc_prebuilt_library_static {
+    name: "libtextclassifier_hash_static",
+    sdk_version: "current",
+    stl: "libc++_static",
+    min_sdk_version: "apex_inherit",
+    srcs: ["lib/libtextclassifier_hash_static.a"],
+    export_include_dirs: ["include"],
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.btservices",
+        "com.android.neuralnetworks",
+        "test_com.android.neuralnetworks",
+        "com.android.extservices",
+        "com.android.adservices",
+        "com.android.ondevicepersonalization",
+    ],
+}
+
+cc_prebuilt_library_static {
+    name: "libtextclassifier_bert_tokenizer",
+    sdk_version: "current",
+    min_sdk_version: "30",
+    stl: "libc++_static",
+    export_include_dirs: ["include"],
+    srcs: ["lib/libtextclassifier_bert_tokenizer.a"],
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.extservices",
+        "com.android.adservices",
+    ],
+}
+
+prebuilt_etc {
+    name: "libtextclassifier_annotator_en_model",
+    filename: "textclassifier.en.model",
+    owner: "google",
+    src: "models/textclassifier.en.model",
+    sub_dir: "textclassifier",
+}
+
+prebuilt_etc {
+    name: "libtextclassifier_annotator_universal_model",
+    filename: "textclassifier.universal.model",
+    owner: "google",
+    src: "models/textclassifier.universal.model",
+    sub_dir: "textclassifier",
+}
+
+prebuilt_etc {
+    name: "libtextclassifier_actions_suggestions_universal_model",
+    filename: "actions_suggestions.universal.model",
+    owner: "google",
+    src: "models/actions_suggestions.universal.model",
+    sub_dir: "textclassifier",
+}
+
+prebuilt_etc {
+    name: "libtextclassifier_lang_id_model",
+    filename: "lang_id.model",
+    owner: "google",
+    src: "models/lang_id.model",
+    sub_dir: "textclassifier",
+}
